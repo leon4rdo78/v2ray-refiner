@@ -395,7 +395,7 @@ function handleTrojanConfig(config, hostname, cleanIp, workerUrl, workerPort) {
     throw new Error(`The config port must be ${workerPort}`);
   }
 
-  const refinedConfig = `trojan://${uuid}@${cleanIp}:443??encryption=none&security=tls&sni=${workerUrl}&alpn=h2%2Chttp%2F1.1&fp=chrome&allowInsecure=1&type=ws&host=${workerUrl}&path=%2F${hostname}${path}#${alias}`;
+  const refinedConfig = `trojan://${uuid}@${cleanIp}:443?encryption=none&security=tls&sni=${workerUrl}&alpn=h2%2Chttp%2F1.1&fp=chrome&allowInsecure=1&type=ws&host=${workerUrl}&path=%2F${hostname}${path}#${alias}`;
 
   return new Response(JSON.stringify({ refinedConfig }), {
     headers: { 'Content-Type': 'application/json' },
